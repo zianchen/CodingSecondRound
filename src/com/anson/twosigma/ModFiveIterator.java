@@ -37,7 +37,12 @@ public class ModFiveIterator extends RandomIterator {
         if (!hasNext()) {
             throw new Exception("No more elements!");
         }
+        System.out.println(nextElement);
         return nextElement;
+    }
+
+    public void remove() {
+        rit.remove();
     }
 }
 
