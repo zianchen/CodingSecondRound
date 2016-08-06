@@ -1,6 +1,8 @@
 package com.anson.twosigma;
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Stack;
 
 /**
  * Created by chenzian on 6/29/16.
@@ -8,7 +10,7 @@ import java.util.*;
 
 abstract class Operation{
 
-    public abstract float getResult(float f1, float f2);
+    public abstract float getResult(float f1, float f2) throws Exception;
 }
 
 class Add extends Operation{
@@ -34,7 +36,10 @@ class Mul extends Operation{
 
 class Div extends Operation{
     @Override
-    public float getResult(float f1, float f2) {
+    public float getResult(float f1, float f2) throws Exception {
+        if (Float.compare(f2, 0.0f) == 0) {
+            throw new Exception("can not divide zero!");
+        }
         return f1 / f2;
     }
 }
@@ -50,7 +55,7 @@ class OperationFactory{
         oMap.put('/', new Div());
     }
 
-    float calculate(float f1, float f2, char op) {
+    float calculate(float f1, float f2, char op) throws Exception {
         return oMap.get(op).getResult(f1, f2);
     }
 }
@@ -124,7 +129,7 @@ public class Calculator {
         return result;
     }
 
-    public static float calculate(float f1, float f2, char op) {
+    public static float calculate(float f1, float f2, char op) throws Exception {
         OperationFactory factory = new OperationFactory();
         return factory.calculate(f1, f2, op);
     }

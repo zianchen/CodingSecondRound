@@ -42,6 +42,8 @@ public class ModFiveIterator extends RandomIterator {
     }
 
     public void remove() {
+//        这里有问题的,根据这篇帖子,这里不能这么实现
+//        http://www.1point3acres.com/bbs/forum.php?mod=viewthread&tid=188714&extra=page%3D1%26filter%3Dsortid%26sortid%3D311%26searchoption%5B3046%5D%5Bvalue%5D%3D34%26searchoption%5B3046%5D%5Btype%5D%3Dradio%26sortid%3D311
         rit.remove();
     }
 }
