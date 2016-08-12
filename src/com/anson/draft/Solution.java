@@ -6,8 +6,8 @@ package com.anson.draft;
 
 public class Solution {
     public static void main(String[] args) {
-        float f1 = 0.0f;
-        System.out.println(Float.compare(f1, 0.0f));
+        int[] sample = {1, 2, 3, 4};
+        int[] s2 = new int[]{1, 2, 3, 4};
     }
 }
 

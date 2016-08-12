@@ -23,9 +23,13 @@ public class ModFiveIterator extends RandomIterator {
     }
 
     public boolean hasNext() throws Exception {
+        if (nextElement != -1) {
+            return true;
+        }
         while (rit.hasNext()) {
             int cur = rit.next();
-            if (cur % 5 == 0) {
+            cur = remove(cur);
+            if (cur != -1) {
                 nextElement = cur;
                 return true;
             }
@@ -34,17 +38,24 @@ public class ModFiveIterator extends RandomIterator {
     }
 
     public int next() throws Exception {
-        if (!hasNext()) {
-            throw new Exception("No more elements!");
+        if (nextElement == -1) {
+            throw new Exception("call hasNext() first!");
         }
         System.out.println(nextElement);
-        return nextElement;
+
+        int rst = nextElement;
+
+        nextElement = -1;
+        return rst;
     }
 
-    public void remove() {
-//        这里有问题的,根据这篇帖子,这里不能这么实现
+    public int remove(int cur) {
 //        http://www.1point3acres.com/bbs/forum.php?mod=viewthread&tid=188714&extra=page%3D1%26filter%3Dsortid%26sortid%3D311%26searchoption%5B3046%5D%5Bvalue%5D%3D34%26searchoption%5B3046%5D%5Btype%5D%3Dradio%26sortid%3D311
-        rit.remove();
+        if (cur % 5 == 0) {
+            return cur;
+        } else {
+            return -1;
+        }
     }
 }
 

@@ -14,9 +14,8 @@ public class CalculatorTest {
     @Test
     public void process() throws Exception {
         Calculator calculator = new Calculator();
-        List<String> RPN = Arrays.asList("1 0 /");
+        List<String> RPN = Arrays.asList("1 2 /");
         for (String s : RPN) {
-            Calculator.evaluate(s);
             float ret = Calculator.evaluate(s);
             System.out.println("ret is : " + ret);
         }

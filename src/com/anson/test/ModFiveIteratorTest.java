@@ -3,6 +3,7 @@ package com.anson.test;
 import com.anson.twosigma.ModFiveIterator;
 import com.anson.twosigma.RandomIterator;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import java.util.Collections;
@@ -25,12 +26,15 @@ public class ModFiveIteratorTest {
     }
 
     @Test
+    @Ignore
     public void hasNext() throws Exception {
         modFiveIterator.hasNext();
     }
 
     @Test
     public void next() throws Exception {
-        modFiveIterator.next();
+        while (modFiveIterator.hasNext()) {
+            modFiveIterator.next();
+        }
     }
 }
