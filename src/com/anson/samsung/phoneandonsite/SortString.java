@@ -7,6 +7,13 @@ import com.anson.util.Print;
  */
 public class SortString {
 
+    public static void main(String[] args) {
+        String[] str = {"abcd", "abc", "bdd"};
+        SortString sortString = new SortString();
+        sortString.SortStr(str);
+        Print.printArray(str);
+    }
+
     public void SortStr(String[] input) {
         if (input == null || input.length == 0) {
             return;
@@ -51,24 +58,5 @@ public class SortString {
             }
         }
         return str1.length() <= str2.length();
-    }
-
-    public boolean smallerThan(String str1, String str2) {
-        int loopLen = Math.min(str1.length(), str2.length());
-        for (int i = 0; i < loopLen; i++) {
-            if (str1.charAt(i) > str2.charAt(i)) {
-                return false;
-            } else if (str1.charAt(i) < str2.charAt(i)) {
-                return true;
-            }
-        }
-        return str1.length() <= str2.length();
-    }
-
-    public static void main(String[] args) {
-        String[] str = {"abcd", "abc", "bdd"};
-        SortString sortString = new SortString();
-        sortString.SortStr(str);
-        Print.printArray(str);
     }
 }

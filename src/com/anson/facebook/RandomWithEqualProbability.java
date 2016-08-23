@@ -7,23 +7,14 @@ import java.util.Random;
  */
 public class RandomWithEqualProbability {
 
-    public static void main(String[] args) {
-        int[] arr = {10, 20, 30};
-        int[] freq = {2, 3, 1};
-        RandomWithEqualProbability randomEqual = new RandomWithEqualProbability();
-        for (int i = 0; i < 6; i++) {
-            System.out.println(randomEqual.myRand(arr, freq));
-        }
-    }
-
-    public int myRand(int[] arr, int[] freq) {
+    public int myRand(int[] arr, int[] freq, Random random) {
         int[] sum = new int[freq.length];
         sum[0] = freq[0];
         for (int i = 1; i < sum.length; i++) {
             sum[i] = sum[i - 1] + freq[i];
         }
-        Random random = new Random();
-        int r = (random.nextInt() % sum[sum.length - 1]) + 1;
+        //int r = (random.nextInt() % sum[sum.length - 1]) + 1;  这个写法只能保证random的生成1~sum[sum.length-1]的数字,而绝不能保证这个范围里数字的生成是等概率的
+        int r = random.nextInt(sum[sum.length - 1]) + 1;
         int index = findCeil(sum, r);
         return arr[index];
     }
