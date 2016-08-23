@@ -1,6 +1,5 @@
 package com.anson.util;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -19,6 +18,12 @@ public class Print {
     }
     public static void printArray(int[] arr) {
         for (int i : arr) {
+            System.out.print(i + ", ");
+        }
+    }
+
+    public static void printArray(Object[] arr) {
+        for (Object i : arr) {
             System.out.print(i + ", ");
         }
     }
