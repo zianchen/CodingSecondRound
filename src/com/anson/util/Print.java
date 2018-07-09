@@ -22,6 +22,12 @@ public class Print {
         }
     }
 
+    public static void printArray(char[] arr) {
+        for (char i : arr) {
+            System.out.print(i + ", ");
+        }
+    }
+
     public static void printArray(Object[] arr) {
         for (Object i : arr) {
             System.out.print(i + ", ");
